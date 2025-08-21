@@ -30,16 +30,16 @@ void Arduino_ILI9342::setRotation(uint8_t r)
   switch (_rotation)
   {
   case 1:
-    r = (ILI9342_MADCTL_MV | ILI9342_MADCTL_MY | ILI9342_MADCTL_BGR);
+    r = (ILI9342_MADCTL_MV | ILI9342_MADCTL_RGB);
     break;
   case 2:
-    r = (ILI9342_MADCTL_BGR);
+    r = (ILI9342_MADCTL_MY | ILI9342_MADCTL_RGB); 
     break;
   case 3:
-    r = (ILI9342_MADCTL_MV | ILI9342_MADCTL_MX | ILI9342_MADCTL_BGR);
+    r = (ILI9342_MADCTL_MV | ILI9342_MADCTL_MX | ILI9342_MADCTL_MY | ILI9342_MADCTL_RGB);
     break;
   default: // case 0:
-    r = (ILI9342_MADCTL_MX | ILI9342_MADCTL_MY | ILI9342_MADCTL_BGR);
+    r = (ILI9342_MADCTL_MX | ILI9342_MADCTL_RGB);
     break;
   }
   _bus->beginWrite();
